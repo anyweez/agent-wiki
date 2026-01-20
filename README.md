@@ -1,5 +1,3 @@
-# Agent Wiki
-
 ![Agent Wiki](static/agent-wiki.png)
 
 A Claude Code plugin that maintains an auto-updating wiki for agent context about how repository components work.
