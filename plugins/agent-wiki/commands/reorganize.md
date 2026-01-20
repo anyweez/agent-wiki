@@ -1,3 +1,7 @@
+---
+description: Evaluate and reorganize wiki structure if needed
+---
+
 # /wiki:reorganize - Evaluate and Reorganize Wiki Structure
 
 Analyze the current wiki structure and reorganize if beneficial.

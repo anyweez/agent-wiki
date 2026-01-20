@@ -4,44 +4,60 @@ A Claude Code plugin that maintains an auto-updating wiki for agent context abou
 
 ## Features
 
-- **`/wiki:init`** - Initialize a new wiki by exploring the codebase with parallel sub-agents
-- **`/wiki`** - Update the wiki to reflect recent code changes
-- **`/wiki:reorganize`** - Analyze and restructure the wiki if needed
-- **`/wiki:serve`** - Start a local web server to browse the wiki
+- **`/agent-wiki:wiki:init`** - Initialize a new wiki by exploring the codebase with parallel sub-agents
+- **`/agent-wiki:wiki`** - Update the wiki to reflect recent code changes
+- **`/agent-wiki:wiki:reorganize`** - Analyze and restructure the wiki if needed
+- **`/agent-wiki:wiki:serve`** - Start a local web server to browse the wiki
 
 ## Installation
 
-### Option 1: Symlink (for local development)
+### Option 1: Quick Test (Local Development)
 
 ```bash
 # Clone this repository
 git clone https://github.com/yourusername/agent-wiki.git
+cd agent-wiki && npm install
 
-# Symlink to your Claude plugins directory
-ln -s /path/to/agent-wiki ~/.claude/plugins/agent-wiki
-
-# Install Node dependencies (for web server)
-cd /path/to/agent-wiki && npm install
+# Run Claude Code with the plugin loaded
+claude --plugin-dir /path/to/agent-wiki
 ```
 
-### Option 2: Direct clone into plugins
+### Option 2: Install via Local Marketplace (Recommended)
 
 ```bash
-# Clone directly into plugins directory
-git clone https://github.com/yourusername/agent-wiki.git ~/.claude/plugins/agent-wiki
+# Clone this repository
+git clone https://github.com/yourusername/agent-wiki.git
+cd agent-wiki && npm install
 
-# Install dependencies
-cd ~/.claude/plugins/agent-wiki && npm install
+# In Claude Code, add the local marketplace
+/plugin marketplace add /path/to/agent-wiki
+
+# Install the plugin (choose scope: user, project, or local)
+/plugin install agent-wiki@agent-wiki-marketplace
+```
+
+### Option 3: Install from GitHub (For Sharing)
+
+Once published to GitHub:
+
+```bash
+# In Claude Code, add the GitHub repo as a marketplace
+/plugin marketplace add github:yourusername/agent-wiki
+
+# Install the plugin
+/plugin install agent-wiki@yourusername/agent-wiki
 ```
 
 ## Usage
+
+Commands are namespaced with `agent-wiki:` prefix when installed as a plugin.
 
 ### Initialize a wiki
 
 In any repository:
 
 ```
-/wiki:init
+/agent-wiki:wiki:init
 ```
 
 This will:
@@ -55,7 +71,7 @@ This will:
 After making code changes:
 
 ```
-/wiki
+/agent-wiki:wiki
 ```
 
 By default, the wiki auto-updates after agent tasks complete. Disable this in `wiki/.config.yml`:
@@ -69,7 +85,7 @@ auto_update: false
 Start the local web server:
 
 ```
-/wiki:serve
+/agent-wiki:wiki:serve
 ```
 
 Then open http://localhost:3000 in your browser.
@@ -79,7 +95,7 @@ Then open http://localhost:3000 in your browser.
 If the wiki grows unwieldy:
 
 ```
-/wiki:reorganize
+/agent-wiki:wiki:reorganize
 ```
 
 This analyzes the structure and suggests/applies improvements like splitting large pages or merging small ones.

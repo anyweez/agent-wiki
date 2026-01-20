@@ -1,3 +1,7 @@
+---
+description: Update the wiki to reflect recent changes
+---
+
 # /wiki - Update Agent Wiki
 
 Update the wiki to reflect recent changes in the codebase.

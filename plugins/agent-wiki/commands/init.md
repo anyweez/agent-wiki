@@ -1,3 +1,7 @@
+---
+description: Initialize a new wiki by exploring the codebase
+---
+
 # /wiki:init - Initialize Agent Wiki
 
 Initialize a new wiki for this repository by exploring the codebase and creating documentation pages.

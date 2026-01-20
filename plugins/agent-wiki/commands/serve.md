@@ -1,3 +1,7 @@
+---
+description: Start a local web server to browse the wiki
+---
+
 # /wiki:serve - Start Wiki Web Server
 
 Start a local web server to browse the wiki in a browser.
